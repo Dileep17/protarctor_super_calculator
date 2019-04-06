@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "tsc": "node_modules/typescript/bin/tsc",
-    "start": "npm run tsc && node output/SampleScript.js"
+    "pretest": "node_modules/.bin/webdriver-manager update && node_modules/.bin/webdriver-manager --detach start",
+    "test": "npm run tsc && protractor output/config.js",
+    "posttest": "node_modules/.bin/webdriver-manager shutdown"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,10 @@
   },
   "homepage": "https://github.com/Dileep17/protractor_super_calculator#readme",
   "devDependencies": {
+    "@types/jasmine": "^3.3.12",
     "@types/node": "^11.13.0",
+    "jasmine": "^3.4.0",
+    "protractor": "^5.4.2",
     "typescript": "^3.4.2"
   }
 }
