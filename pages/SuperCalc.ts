@@ -36,9 +36,14 @@ export class SuperCalc{
         this.firstInputField.sendKeys(firstNumber);
         this.secondInputField.sendKeys(secondNumber);
         this.goButton.click();
-        var Ec = protractor.ExpectedConditions;
-        browser.wait(Ec.not(Ec.presenceOf($(".ng-valid-parse"))));
 
+        // Above lines are not needed as this is Angular app and protractor will automatically wait for the UI components to load
+        
+        // var Ec = protractor.ExpectedConditions;
+        // browser.wait(Ec.not(Ec.presenceOf($(".ng-valid-parse"))));
+
+        // above code might be needed when app is a non Angular app or angular enabled is set to false as below
+        // browser.waitForAngularEnabled(false); 
     }
 
     getResult = () => {
